@@ -1,0 +1,16 @@
+{
+  "name": "ridestimator_prototype",
+  "version": "0.0.0",
+  "homepage": "https://github.com/altairn5/Ridestimator_Prototype",
+  "authors": [
+    "Humberto Calero <altairn5@uga.edu>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

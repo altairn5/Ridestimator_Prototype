@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ridestimatorApp">
+<head>
+	
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ridestimator</title>
+  <base href="/">
+
+
+  <!-- Bootstrap CDN -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Google Maps API and Places Library -->
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places"></script> 
+
+<!-- jquery and uber.js -->
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+
+  <!-- Bower Components -->
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+  <!-- App JS -->
+ <script src="app.js"></script> 
+<!-- <script src="js/uber.js"></script> -->
+
+
+</head>
+<body ng-controller = "RideEstimateController as ride">
+	<h1> Ride Duration: {{ride.duration}}</h1>
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="false">
+  <div class="modal-dialog flip-wrapper">
+    <div class="modal-content flip active" id="loginFlip">
+      <div class="modal-body">
+        <header class="header">
+          <p class="title">Log in</p>
+        </header>
+        <div class="alert alert-danger hide" id="errorWrapperLogin"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>
+        <div class="form-controls">
+          <div class="form-controls">
+            <a id="auth-loginlink" href="#" class="btn-secondary btn-block btn-big" data-track-event="SignUpModal,SignUpWithFacebook"><i class="icon-facebook"></i>&nbsp;&nbsp;Log in with Facebook</a>
+          </div>
+          <div class="line-form-separator"></div>
+          <div class="form-group">
+            
+            <form ng-submit="createWine()" ng-show="wineFormVisible">
+  <div class="form-group">
+    <input type="text" ng-model="wine.name" class="form-control" placeholder="Name" autofocus>
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="wine.year" class="form-control" placeholder="Year">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="wine.grapes" class="form-control" placeholder="Grapes">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="wine.country" class="form-control" placeholder="Country">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="wine.region" class="form-control" placeholder="Region">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="wine.price" class="form-control" placeholder="Price">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="wine.picture" class="form-control" placeholder="Picture">
+  </div>
+  <input type="submit" value="Save Wine" class="btn btn-default">
+</form>
+          </div>
+						
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
