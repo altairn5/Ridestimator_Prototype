@@ -14,29 +14,40 @@ app.controller('RideEstimateController', ['$scope','$http', function ($scope, $h
 
 	$scope.ride = {};
 
-	$scope.uberClientId = "nve8UVY7Ehtc9_2BlbLqRFpKf_sR4URb";
-	$scope.uberServerToken = "T8mbwylMDwaXXDZMPt8wimfkhh2B3x6ONr_ZkeI9";
-    $scope.lglt = {
+	var uberClientId = "nve8UVY7Ehtc9_2BlbLqRFpKf_sR4URb";
+	var uberServerToken = "T8mbwylMDwaXXDZMPt8wimfkhh2B3x6ONr_ZkeI9";
+    var lglt = {
 	  start_latitude: 37.763168,
       start_longitude: -122.4392017,
       end_latitude: 37.7908821,
       end_longitude: -122.4037407
-  };
+  	};
 
 
-	$scope.method = 'GET';
-	$scope.url = 'https://api.uber.com/v1/estimates/price.json';
+	var method = 'GET';
+	var url = 'https://api.uber.com/v1/estimates/price';
 
-	$scope.fetch = function() {
-	$scope.code = null;
-	$scope.response = null;
+	// $scope.fetch = function() {
+	// $scope.code = null;
+	// $scope.response = null;
 
-	$http({method: $scope.method, url: $scope.url, headers: {'Authorization': 'Token'+ uberClientId}, data: $scope.lglt }).success(function(response){
-    
-    	$scope.ride = response[0];
-    	console.log($scope.ride);
-
+	$http({	
+			method: method,
+			url: url,
+			headers: {'Authorization': 'Token'+ uberClientId},
+			data: lglt
+		})
+		.then(function successCallback(response) {
+			// this callback will be called asynchronously
+			// when the response is available
+	    	$scope.ride = response[0];
+	    	console.log($scope.ride);
+		}, function errorCallback(response) {
+			// called asynchronously if an error occurs
+			// or server returns response with an error status.
+			alert("BAD THING: Check your console errors")
 		});
-};
+
+	// };
 
 }]);
